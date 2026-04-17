@@ -1,0 +1,77 @@
+% LTeX: enabled=false
+\usepackage{color,graphicx} %allows use of postscript graphics and color output
+\textwidth 170mm
+\textheight 210mm
+\topmargin 0.0mm
+\oddsidemargin 0mm
+\evensidemargin 0mm
+
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{mdframed}
+\usepackage{graphics}
+\usepackage{xspace}
+\usepackage[skins,breakable]{tcolorbox}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{datetime2}
+\DTMsetup{showzone=true}
+
+\usepackage{listings} % turn on to have code
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+
+%put solution in a nice little boxes.
+\newtcolorbox{solutionbox}[1][]{
+	enhanced jigsaw,
+	breakable,
+	pad at break=1mm,
+	interior hidden,
+	colframe=black!50!white,
+	title=Solution for #1,
+	after title={
+			\phantomsection
+			\addcontentsline{toc}{subsection}{Solution for #1}
+		}
+}
+
+% allow infinitely many horizontal lines.
+\makeatletter
+\newcommand{\boxbar}{%
+
+	\begin{tikzpicture}
+		\path[use as bounding box] (0,0) -- (\linewidth,0);
+		\draw[color=black!50!white,dashed,dash phase=2pt]
+		(0-\kvtcb@leftlower-\kvtcb@boxsep,0)--
+		(\linewidth+\kvtcb@rightlower+\kvtcb@boxsep,0);
+	\end{tikzpicture}%
+
+}
+\makeatother
+
+\usepackage{url}
+
+
+\usepackage{accents}
+% Define \ppori as o with tilde underneath
+\newcommand{\ppori}[1]{\underaccent{\tilde}{o}_{#1}}
+
+% Define \pv{v} as underlined v and \pc as underlined c.
+% physical vector and physical coordinate system.
+% pt, or physical tensor have two double lines.
+\newcommand{\pv}[1]{\underline{#1}}
+\newcommand{\pc}[1]{\underline{#1}}
+\newcommand{\pt}[1]{\underline{\underline{#1}}}
+
+

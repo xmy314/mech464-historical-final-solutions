@@ -1,0 +1,274 @@
+\begin{solutionbox}[Q1-1]
+    7  axes of rotation so 7 degrees of freedom.
+
+    When first joint lines up with the third, it is an arm singularity.
+
+    When fifth joint lines up with the 7th joint, it is a wrist singularity.
+\end{solutionbox}
+
+
+\begin{solutionbox}[Q1-2]
+
+    \begin{align*}
+        {^0s} & = \frac{1}{3}\begin{bmatrix}
+                                 1 \\2\\2
+                             \end{bmatrix}       \\
+        {^0A} & =e^{\frac{\pi}{4} {^0s}\times}    \\
+              & =e^{\frac{\pi}{4} \left(
+        \frac{1}{3}\begin{bmatrix}
+                       1 \\2\\2
+                   \end{bmatrix}
+        \right)\times}                            \\
+              & =e^{\frac{\pi}{12} \begin{bmatrix}
+                                       0  & -2 & 2  \\
+                                       2  & 0  & -1 \\
+                                       -2 & 1  & 0  \\
+                                   \end{bmatrix}} \\
+    \end{align*}
+
+
+    Expand with Rodrigues if there is extra time.:
+
+    \begin{align*}
+        {\,^0A} & =e^{\frac{\pi}{12} \begin{bmatrix}
+                                         0  & -2 & 2  \\
+                                         2  & 0  & -1 \\
+                                         -2 & 1  & 0  \\
+                                     \end{bmatrix}}                                                                                                                                                                                                                                                                        \\
+                & =I
+        +\sin(\pi/4)\frac{1}{3}\begin{bmatrix}
+                                   0  & -2 & 2  \\
+                                   2  & 0  & -1 \\
+                                   -2 & 1  & 0  \\
+                               \end{bmatrix}
+        +(1-\cos(\pi/4))\frac{1}{9}\begin{bmatrix}
+                                       -8 & 2  & 2  \\
+                                       2  & -5 & 4  \\
+                                       2  & 4  & -5 \\
+                                   \end{bmatrix}                                                                                                                                                                                                                                                                          \\
+                & =I
+        +\frac{\sqrt{2}}{2}\frac{1}{9}\begin{bmatrix}
+                                          0  & -6 & 6  \\
+                                          6  & 0  & -3 \\
+                                          -6 & 3  & 0  \\
+                                      \end{bmatrix}
+        +(1-\frac{\sqrt{2}}{2})\frac{1}{9}\begin{bmatrix}
+                                              -8 & 2  & 2  \\
+                                              2  & -5 & 4  \\
+                                              2  & 4  & -5 \\
+                                          \end{bmatrix}                                                                                                                                                                                                                                                                   \\
+                & =\begin{bmatrix}
+                       1+(1-\frac{\sqrt{2}}{2})(\frac{-8}{9})                                    & \frac{\sqrt{2}}{2}\cdot(\frac{-6}{9})+(1-\frac{\sqrt{2}}{2})(\frac{2}{9}) & \frac{\sqrt{2}}{2}\cdot(\frac{6}{9})+ (1-\frac{\sqrt{2}}{2})(\frac{2}{9}) \\
+                       \frac{\sqrt{2}}{2}\cdot(\frac{6}{9})+(1-\frac{\sqrt{2}}{2})(\frac{2}{9})  & 1+(1-\frac{\sqrt{2}}{2})(\frac{-5}{9})                                    & \frac{\sqrt{2}}{2}\cdot(-3/9)+(1-\frac{\sqrt{2}}{2})(\frac{4}{9})         \\
+                       \frac{\sqrt{2}}{2}\cdot(\frac{-6}{9})+(1-\frac{\sqrt{2}}{2})(\frac{2}{9}) & \frac{\sqrt{2}}{2}\cdot(3/9)+(1-\frac{\sqrt{2}}{2})(\frac{4}{9})          & 1+(1-\frac{\sqrt{2}}{2})(\frac{-5}{9})
+                   \end{bmatrix} \\
+                & =\begin{bmatrix}
+                       \frac{1}{9}+\frac{\sqrt{2}}{2}\cdot \frac{8}{9}  & \frac{2}{9}+\frac{\sqrt{2}}{2}\cdot \frac{-8}{9} & \frac{2}{9}+\frac{\sqrt{2}}{2}\cdot\frac{4}{9}  \\
+                       \frac{2}{9}+\frac{\sqrt{2}}{2}\cdot \frac{4}{9}  & \frac{4}{9}+\frac{\sqrt{2}}{2}\cdot \frac{5}{9}  & \frac{4}{9}+\frac{\sqrt{2}}{2}\cdot\frac{-7}{9} \\
+                       \frac{2}{9}+\frac{\sqrt{2}}{2}\cdot \frac{-8}{9} & \frac{4}{9}+\frac{\sqrt{2}}{2}\cdot \frac{-1}{9} & \frac{4}{9}+\frac{\sqrt{2}}{2}\cdot \frac{5}{9}
+                   \end{bmatrix}
+    \end{align*}
+
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-3]
+    \begin{align*}
+        {^1C_0} & = \begin{bmatrix}
+                        \cos(\pi/4)  & \sin(\pi/4) & 0 \\
+                        -\sin(\pi/4) & \cos(\pi/4) & 0 \\
+                        0            & 0           & 1
+                    \end{bmatrix}                                       \\
+        {^1A}   & =e^{\frac{\pi}{4} {^1s}\times}                                         \\
+                & =e^{\frac{\pi}{4} ({^1C_0}{^0s})\times}                                \\
+                & =\left(^1C_0\right) e^{\frac{\pi}{4} {^0s}\times} \left(\,^0C_1\right) \\
+                & =\left(^1C_0\right) \left(\,^0A\right) \left(\,^1C_0\right)^{T}        \\
+    \end{align*}
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-3?]
+    The question is missing a few words, I'm going to assume that it is given the initial and final, position, velocity and acceleration. And that t goes from 0 to 1.
+
+    \begin{align*}
+        P(t)=A+Bt+Ct^2+Dt^3+Et^4+Ft^5 \\
+        V(t)=B+2Ct+3Dt^2+4Et^3+5Ft^4  \\
+        A(t)=2C+6Dt+12Et^2+20Ft^3
+    \end{align*}
+
+    \begin{align*}
+        \begin{bmatrix}
+            P(0) \\
+            V(0) \\
+            A(0) \\
+            P(1) \\
+            V(1) \\
+            A(1)
+        \end{bmatrix}
+         & =
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 & 0  & 0  \\
+            0 & 1 & 0 & 0 & 0  & 0  \\
+            0 & 0 & 2 & 0 & 0  & 0  \\
+            1 & 1 & 1 & 1 & 1  & 1  \\
+            0 & 1 & 2 & 3 & 4  & 5  \\
+            0 & 0 & 2 & 6 & 12 & 20 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            A \\B\\C\\D\\E\\F
+        \end{bmatrix} \\
+        \begin{bmatrix}
+            A \\B\\C\\D\\E\\F
+        \end{bmatrix}
+         & =
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 & 0  & 0  \\
+            0 & 1 & 0 & 0 & 0  & 0  \\
+            0 & 0 & 2 & 0 & 0  & 0  \\
+            1 & 1 & 1 & 1 & 1  & 1  \\
+            0 & 1 & 2 & 3 & 4  & 5  \\
+            0 & 0 & 2 & 6 & 12 & 20 \\
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+            P(0) \\
+            V(0) \\
+            A(0) \\
+            P(1) \\
+            V(1) \\
+            A(1)
+        \end{bmatrix}
+    \end{align*}
+
+    Solve this for each of the axis separately and coefficient would be shown.
+
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-4]
+    \begin{align*}
+        T & = \frac{1}{2}m \left(\dot{d_1} - l\sin(\theta_2)\dot{\theta_2}\right)^2 + \frac{1}{2}m\left(l\cos(\theta_2)\dot{\theta_2}\right)^2 + \frac{1}{2}M\dot{d_1}^2                         \\
+          & = \frac{1}{2}m \left(\dot{d_1}^2-2\dot{d_1}l\sin(\theta_2)\dot{\theta_2} + l^2\sin^2(\theta_2)\dot{\theta_2}^2 + l^2\cos^2(\theta_2)\dot{\theta_2}^2\right)+ \frac{1}{2}M\dot{d_1}^2 \\
+          & = \frac{1}{2}m \left(\dot{d_1}^2-2\dot{d_1}l\sin(\theta_2)\dot{\theta_2} + l^2\dot{\theta_2}^2 \right)+ \frac{1}{2}M\dot{d_1}^2                                                      \\
+        V & =mgl\sin(\theta_2)                                                                                                                                                                   \\
+    \end{align*}
+
+    \begin{align*}
+        L & =T-V                                                                                                                                                \\
+        L & =\frac{1}{2}m \left(\dot{d_1}^2-2\dot{d_1}l\sin(\theta_2)\dot{\theta_2} + l^2\dot{\theta_2}^2 \right)+ \frac{1}{2}M\dot{d_1}^2  - mgl\sin(\theta_2) \\
+    \end{align*}
+
+    \begin{align*}
+        \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{d_1}}\right) - \frac{\partial L}{\partial d_1} & = f_1 \\
+        \frac{d}{dt}\left(m\dot{d_1}-ml\sin(\theta_2)\dot{\theta_2}+M\dot{d_1}\right)                    & = f_1 \\
+        m\ddot{d_1}-(ml\sin(\theta_2)\ddot{\theta_2}+ml\cos(\theta_2)\dot{\theta_2}^2)+M\ddot{d_1}       & = f_1 \\
+        m\ddot{d_1}+M\ddot{d_1}-ml\sin(\theta_2)\ddot{\theta_2}-ml\cos(\theta_2)\dot{\theta_2}^2         & = f_1 \\
+        (M+m)\ddot{d_1}-ml\ddot{\theta_2}\sin(\theta_2)-ml\dot{\theta_2}^2\cos(\theta_2)                 & = f_1 \\
+    \end{align*}
+
+    \begin{align*}
+        \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta_2}}\right) - \frac{\partial L}{\partial \theta_2}                                              & = \tau_2 \\
+        \frac{d}{dt}\left(-ml\dot{d_1}\sin(\theta_2)+ ml^2\dot{\theta_2} \right) - \left(-ml\dot{d_1}\cos(\theta_2)\dot{\theta_2} - mgl\cos(\theta_2)\right)    & = \tau_2 \\
+        -ml\dot{d_1}\cos(\theta_2)\dot{\theta_2}-ml\ddot{d_1}\sin(\theta_2)+ ml^2\ddot{\theta_2}  + ml\dot{d_1}\cos(\theta_2)\dot{\theta_2} + mgl\cos(\theta_2) & = \tau_2 \\
+        -ml\ddot{d_1}\sin(\theta_2)+ ml^2\ddot{\theta_2} + mgl\cos(\theta_2)                                                                                    & = \tau_2 \\
+        ml^2\ddot{\theta_2}-ml\ddot{d_1}\sin(\theta_2) + mgl\cos(\theta_2)                                                                                      & = \tau_2 \\
+    \end{align*}
+
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-5]
+    G term is the terms that only dependent on position
+    \begin{align*}
+        G(q) = \begin{bmatrix}
+                   0 \\
+                   mgl\cos(\theta_2)
+               \end{bmatrix}
+    \end{align*}
+
+    From the process of Lagrangian, terms that multiply with double derivative of position must only be multiplied with terms with no derivative. Just find their factors.
+    \begin{align*}
+        D(q) = \begin{bmatrix}
+                   (M+m)             & -ml\sin(\theta_2) \\
+                   -ml\sin(\theta_2) & ml^2
+               \end{bmatrix}
+    \end{align*}
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-6]
+    \begin{align*}
+        d_0(t)=0                                                             \\
+        \dot{d_0}(t)=0                                                       \\
+        \ddot{d_0}(t)=0                                                      \\
+        \theta_0(t)=-\frac{\pi}{2} \cos\left(\frac{\pi}{T}T\right)           \\
+        \dot{\theta_0}(t)= \frac{\pi^2}{2T} \sin\left(\frac{\pi}{T}T\right)  \\
+        \ddot{\theta_0}(t)=\frac{\pi^3}{2T^2}\cos\left(\frac{\pi}{T}T\right) \\
+    \end{align*}
+
+    \begin{align*}
+        f_1 = (M+m)\ddot{d_1}-ml\ddot{\theta_2}\sin(\theta_2)-ml\dot{\theta_2}^2\cos(\theta_2)           \\
+        f(t) =-ml\ddot{\theta_0}(t)\sin(\theta_0(t))-ml\left(\dot{\theta_0}(t)\right)^2\cos(\theta_0(t)) \\
+    \end{align*}
+
+    \begin{align*}
+        \tau_1 = ml^2\ddot{\theta_2}-ml\ddot{d_1}\sin(\theta_2) + mgl\cos(\theta_2) \\
+        \tau(t) = ml^2 \ddot{\theta_0}(t) + mgl\cos(\theta_0(t))                    \\
+    \end{align*}
+
+    Expansion would take too long, I'm just going to leave it as is.
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-7]
+    PD plus gravity is in joint space.
+
+    Given desired $q_r$ and desired $\dot{q_r}$. $e_{q} = q_r-q$. $e_{qd} = \dot{q_r}-\dot{q}$. Get gravity term from the term on top, call it $u_g$ (this calculated from measured q). $u=kp\cdot e_q + kv\cdot e_{qd} + u_g$
+
+    PD plus feedforward is the following.
+
+    Given desired $q_r$ and desired $\dot{q_r}$. $e_{q} = q_r-q$. $e_{qd} = \dot{q_r}-\dot{q}$. Get all the torques from the equations of motion and call that $u_{ff}$. (this uses desire $q$, desired $\dot{q}$, and desired $\ddot{q}$) $u=kp\cdot e_q + kv\cdot e_{qd} + u_{ff}$
+
+    PD control is just joint space PD control.
+
+    Task space stiffness control is task space pd control.
+
+    Computed torque control moves the equations of motion into the loop, but input is still joint space. (the process of moving it in also changes the calculation to go from the desired to measured. Why? Because measured is the correct option and the desired is just a good approximation that can be precomputed outside the loop.)
+
+    Resolved acceleration is one step above that and the input is in task space.
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-8]
+    BFS, no need to detail
+\end{solutionbox}
+
+\begin{solutionbox}[Q1-9]
+
+    (i)
+
+    Cameras have different parameters, without calibrating, it is hard to know precisely how a pixel gets mapped to a line in 3d space.
+
+    Extrinsic parameters are like the displacement and orientation of the camera with respect to some references coordinate frame.
+
+    Intrinsic parameters are like the focal length, principal point, field of view, and lens distortion of the camera.
+
+    Single simple projective transform ignores lens distortion.
+
+
+    (ii)
+
+    Hough transform is an algorithm to process images to identify circle in the image. It is done by transforming each pixel into a circle and added to an accumulator. Then the points in accumulator with high number are likely center of circles. This algorithm can also be used to identify lines. For that, the pixels don't contribute to circles in parameter space but rather inside. Each point in parameter space is a line. Vertical axis is how far the line is from the center and horizontal axis is the angle of the line.
+
+    (iii)
+
+    Corners are pixels in an image that have some saliency or recognizability. a different description is that it is points with large intensity change in multiple directions.
+
+    Binary string descriptors is just the result of brightness comparisons done concatenated into a binary number. It is used in brief to identify image by going over a patch and checking relative brightness changes between some optimized pairs of pixels.
+
+    (iv)
+
+    Closing is first dilating then eroding. Since the dilating process expands the white areas, some small black regions may be completely filled out. Then, in the eroding process expands the back regions back out. But since some black regions are completely erased, they won't come back after eroding. The combined effect is as if the black holes in the image are "closed". Opening works exactly oppositely by First making the black regions larger which erases the small white regions. Then, dilating back returns black region to it previous size, but small white regions in the black regions have been erased or "opened". Alternatively, closing removes pepper and opening removes salt.
+
+    (v)
+
+    A and C can be used as such.
+
+    B is not true, but it can help since it averages out the salt and pepper noise in a sense.
+
+    D is completely false.
+\end{solutionbox}
+
+% 130 minutes first pass. 7:20 - 9:30
